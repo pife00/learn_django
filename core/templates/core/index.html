@@ -14,7 +14,7 @@ Welcome
   <div class="grid grid-cols-3 gap-3">
     {% for item in items %}
     <div>
-        <a href="#">
+        <a href="{% url 'item:details' pk=item.id  %}">
           <img src="{{item.image.url}}" alt="item.name" class="rounted--xl" />
         </a>
         <div class="flex justify-between bg-white py-6">

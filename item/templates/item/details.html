@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{%block title %}
+{{item.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="grid grid-cols-5 gap-6">
+    <div class="col-span-3">
+        <img src="{{item.image.url}}" class="rounded-xl" />
+    </div>
+    <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
+        <h1 class="mb-6 text-lg font-semibold"> {{ item.name}} </h1>
+        <p class="text-gray-500"> {{item.price}} </p>
+        <p class="text-gray-500 mb-6"> {{item.created.by}} </p>
+        {% if item.descriptio %}
+        <h2 class="font-semibold"> {{item.description}} </h2>
+        {% endif %}
+
+        <a class="bg-teal-500 p-5 text-lg text-white font-semibold rounded-xl hover:bg-teal-700" href="">Contact
+            Seller</a>
+
+    </div>
+</div>
+
+<div class="grid grid-cols-3 gap-3">
+    {% for item in related_items %}
+    <div>
+        <a href="{% url 'item:details' pk=item.id  %}">
+          <img src="{{item.image.url}}" alt="item.name" class="rounted--xl" />
+        </a>
+        <div class="flex justify-between bg-white py-6">
+          <h2 class="text-lg font-semibold text-gray-500">{{item.name}}</h2>
+    
+          <h2>{{item.price}}</h2>
+        </div>
+
+    </div>
+
+    {% endfor %}
+  </div>
+
+{% endblock %}
