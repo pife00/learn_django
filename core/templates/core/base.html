@@ -20,7 +20,7 @@
                 href="#">
                 Inbox</a>
             <a class="py-3 px-6 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700 "
-                href="#"> DashBoard</a>
+                href="{% url 'dashboard:index' %}"> DashBoard</a>
             {% else %}
             <a class="py-3 px-6 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700 "
                 href="/signup">
