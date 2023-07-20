@@ -18,8 +18,22 @@
         <h2 class="font-semibold"> {{item.description}} </h2>
         {% endif %}
 
+        {% if request.user == item.created_by %}
+        <div class="p-6 bg-white rounded-xl" >
+          <p>this is your item</p>
+          <br />
+          <a class="rounded-xl mt-6 px-6 py-3 bg-blue-500 font-semibold text-white text-xl"  href="{% url 'item:edit' item.id %}">Edit</a>
+
+
+          <a class="rounded-xl mt-6 px-6 py-3 bg-red-500 font-semibold text-white text-xl"  href="{% url 'item:delete' item.id %}">Delete</a>
+
+        </div>
+        {% else %}
         <a class="bg-teal-500 p-5 text-lg text-white font-semibold rounded-xl hover:bg-teal-700" href="">Contact
-            Seller</a>
+          Seller</a>
+        {% endif %}
+
+       
 
     </div>
 </div>
